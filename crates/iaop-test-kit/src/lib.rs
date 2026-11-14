@@ -9,7 +9,12 @@
 //! This crate intentionally contains NO domain fixtures or business
 //! semantics — those belong to each service's own test suite.
 
+pub mod concurrency;
 pub mod env;
 pub mod events;
 pub mod ids;
 pub mod json_assert;
+pub mod kafka;
+pub mod mock_provider;
+pub mod oidc;
+pub mod postgres;
