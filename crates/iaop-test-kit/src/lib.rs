@@ -11,6 +11,7 @@
 
 pub mod concurrency;
 pub mod env;
+pub mod evidence;
 pub mod events;
 pub mod ids;
 pub mod json_assert;
