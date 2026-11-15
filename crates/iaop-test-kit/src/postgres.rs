@@ -12,10 +12,11 @@ use uuid::Uuid;
 pub struct PostgresTestHelper;
 
 impl PostgresTestHelper {
-    /// Returns the configured database URL or standard dev fallback.
+    /// Returns the configured database URL. Fails explicitly when unset —
+    /// no credentials are embedded in source.
     pub fn default_url() -> String {
         std::env::var("DATABASE_URL")
-            .unwrap_or_else(|_| "postgres://postgres:postgres@127.0.0.1:5432/postgres".to_string())
+            .expect("DATABASE_URL must be set — no credentials are embedded in source")
     }
 
     /// Connects to PostgreSQL or panics with an actionable error message.
